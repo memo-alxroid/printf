@@ -13,12 +13,19 @@ int printString(va_list args, int *count)
 	int i;
 
 	str = va_arg(args, char *);
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
+
 	i = 0;
+
 	while (str[i] != '\0')
 	{
 		putchar(str[i]);
 		*count += 1;
 		i++;
 	}
+
 	return (*count);
 }
