@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			specifierPrintFunction = getSpecifierPrintFunction(++format);
 			if (specifierPrintFunction == NULL)
 			{
-				if (*format != '%')
+				if (*format != '%' && *format != '!')
 				{
 					count = printRegularCharacter(format - 1, &count);
 				}
