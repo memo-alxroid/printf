@@ -12,6 +12,11 @@ int _printf(const char *format, ...)
 	int (*specifierPrintFunction)(va_list, int *);
 	va_list args;
 
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	va_start(args, format);
 	count = 0;
 	while (*format != '\0')
