@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...)
 {
-	int count;
+	int count, formatLength;
 	int (*specifierPrintFunction)(va_list, int *);
 	va_list args;
 
@@ -28,15 +28,16 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			formatLength = strlen(format);
+			if (formatLength == 1)
+			{
+				return (-1);
+			}
 			specifierPrintFunction = getSpecifierPrintFunction(++format);
 			if (specifierPrintFunction == NULL)
 			{
-				if (*format != '%')
-				{
-					count = printRegularCharacter(format - 1, &count);
-				}
-				count = printRegularCharacter(format, &count);
-				format += 1;
+				count = handleModule(format, &count);
+				format++;
 				continue;
 			}
 			else
