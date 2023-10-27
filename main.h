@@ -26,5 +26,6 @@ int (*getSpecifierPrintFunction(const char *format))(va_list, int *);
 int printSpecialCharacter(const char *format, int *count);
 int printSpecialCharacter(const char *format, int *count);
 int handleModule(const char *format, int *count);
+int printInteger(va_list args, int *count);
 
 #endif

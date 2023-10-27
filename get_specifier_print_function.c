@@ -12,6 +12,8 @@ int (*getSpecifierPrintFunction(const char *format))(va_list, int *)
 	specifierPrintFunction specifierPrintFunctions[] = {
 		{'c', printCharacter},
 		{'s', printString},
+		{'d', printInteger},
+		{'i', printInteger},
 		{'\0', NULL}};
 	i = 0;
 	while (specifierPrintFunctions[i].character != '\0')
